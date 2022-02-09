@@ -37,7 +37,7 @@ func _process(delta):
     if not locked:
         return
     var editor_camera = plugin.camera
-    camera.transform = editor_camera.transform
+    camera.global_transform = editor_camera.global_transform
 
     # offset it behind actual camera so that gizmos are not in the way
     # you can hide the camera gizmo, but I didn't find a way to hide
@@ -73,7 +73,7 @@ func toggle(state):
             editor_camera[key] = stored[key]
 
         # undo the behind offset so that it's actually accurately positioned
-        camera.transform = editor_camera.transform
+        camera.global_transform = editor_camera.global_transform
 
 # there must be some kind of reference to that checkbox from
 # the native Camera code, but nothing in GDScript it seems like
