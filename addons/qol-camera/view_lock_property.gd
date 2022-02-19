@@ -37,12 +37,12 @@ func _process(delta):
     if not locked:
         return
     var editor_camera = plugin.camera
-    camera.transform = editor_camera.transform
+    camera.global_transform = editor_camera.global_transform
 
     # offset it behind actual camera so that gizmos are not in the way
     # you can hide the camera gizmo, but I didn't find a way to hide
     # the spatial selection default gizmo
-    camera.transform.origin += camera.transform.basis.z * 10
+    camera.global_transform.origin += camera.global_transform.basis.z * 10
 
     # it resets the fov on movement
     # and if user changes camera settings through inspector
